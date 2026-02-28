@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cflg1gm5nm28y"]
+
+[ext_resource type="PackedScene" uid="uid://cxusjlfgcwhs" path="res://environment/assets/iglesia romanica.blend" id="1_sr08d"]
+
+[node name="iglesia romanica" unique_id=1930712271 instance=ExtResource("1_sr08d")]

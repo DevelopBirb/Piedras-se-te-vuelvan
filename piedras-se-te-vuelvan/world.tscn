@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cpjrxdbfatsso"]
+
+[ext_resource type="PackedScene" uid="uid://cflg1gm5nm28y" path="res://environment/iglesia_romanica.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://c8xbbguf4r3n0" path="res://characters/player/player.tscn" id="2_fj7yv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_f3sb7"]
+sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
+
+[sub_resource type="Environment" id="Environment_fj7yv"]
+background_mode = 2
+sky = SubResource("Sky_f3sb7")
+ambient_light_source = 2
+ambient_light_color = Color(0.42123565, 0.4209256, 0.5186582, 1)
+ssao_enabled = true
+ssao_radius = 2.12
+ssao_intensity = 3.48
+
+[node name="World" type="Node3D" unique_id=473429041]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1788231891]
+transform = Transform3D(-0.86602545, 0.43301272, -0.25, 2.7805946e-08, 0.49999994, 0.86602545, 0.5, 0.75000006, -0.43301272, 0, 22, 0)
+light_color = Color(0.75608736, 0.7560873, 0.7560873, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2116188723]
+environment = SubResource("Environment_fj7yv")
+
+[node name="iglesia romanica" parent="." unique_id=1930712271 instance=ExtResource("1_f3sb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.150665, 0.5904331, -5.478157)
+
+[node name="Player" parent="." unique_id=1267340891 instance=ExtResource("2_fj7yv")]
