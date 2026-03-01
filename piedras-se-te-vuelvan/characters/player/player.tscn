@@ -9,9 +9,7 @@ radius = 0.33251953
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_508ok"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_508ok"]
-radius = 0.1
-height = 0.2
+[sub_resource type="BoxMesh" id="BoxMesh_exd8k"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1267340891]
 collision_layer = 2
@@ -37,8 +35,10 @@ target_position = Vector3(0, 0, -4)
 collision_mask = 5
 
 [node name="ObjectHolder" type="Node3D" parent="Camera3D" unique_id=1685618964]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56794405, -0.2902497, -0.70577824)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50781626, -0.2902497, -0.9589839)
 script = ExtResource("3_exd8k")
+release_height = 0.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/ObjectHolder" unique_id=962500440]
-mesh = SubResource("SphereMesh_508ok")
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("BoxMesh_exd8k")

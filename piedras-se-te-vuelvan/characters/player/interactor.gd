@@ -5,10 +5,8 @@ extends Node3D
 @onready var object_holder: Node3D = $"../ObjectHolder"
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
-		interact()
-
-func interact():
-	var target = detector_ray_cast_3d.get_collider()
 	if detector_ray_cast_3d.is_colliding():
-		player.interacted_with.emit(target)
+		var target = detector_ray_cast_3d.get_collider()
+		player.looking_at.emit(target)
+		if Input.is_action_just_pressed("interact"):
+			player.interacted_with.emit(target)

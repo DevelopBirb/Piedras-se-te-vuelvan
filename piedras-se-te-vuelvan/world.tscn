@@ -25,6 +25,12 @@ ambient_light_color = Color(0.42123565, 0.4209256, 0.5186582, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_aqk2v"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
+size = Vector3(2.6, 0.14, 1.42)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
+size = Vector3(2.6210938, 0.15527344, 1.4521484)
+
 [node name="World" type="Node3D" unique_id=473429041]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1788231891]
@@ -42,27 +48,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.150665, 0.5904331, -5.4781
 
 [node name="ObjectTest" type="RigidBody3D" parent="." unique_id=19824509 groups=["interactable", "object"]]
 collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectTest" unique_id=1557423498]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_fj7yv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ObjectTest" unique_id=569655743 groups=["interactable"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ObjectTest" unique_id=569655743]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("BoxMesh_tlwt5")
 
 [node name="ObjectTest2" type="RigidBody3D" parent="." unique_id=17742585 groups=["interactable", "object"]]
 collision_layer = 4
+collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectTest2" unique_id=1810992119]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_tlwt5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ObjectTest2" unique_id=1374937609 groups=["interactable"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ObjectTest2" unique_id=1374937609]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("SphereMesh_aqk2v")
 
 [node name="InteractionsManager" parent="." unique_id=791788302 instance=ExtResource("3_tlwt5")]
+
+[node name="osuaryTest" type="RigidBody3D" parent="." unique_id=2065843267 groups=["interactable", "ossuary"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7797489, 0.84383106, -4.922748)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="osuaryTest" unique_id=534019145]
+mesh = SubResource("BoxMesh_aqk2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="osuaryTest" unique_id=1267712545]
+shape = SubResource("BoxShape3D_036b0")
 
 [connection signal="interacted_with" from="Player" to="InteractionsManager" method="_on_player_interacted_with"]
 [connection signal="object_picked_up" from="InteractionsManager" to="Player" method="_on_interactions_manager_object_picked_up"]

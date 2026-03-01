@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 signal interacted_with(Node3D)
+signal looking_at(Node3D)
+
 @onready var object_holder: Node3D = $Camera3D/ObjectHolder
 @export var held_object : Node3D = null
 
@@ -16,10 +18,11 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion && !Input.is_action_pressed("right_click"):
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity_h
 		camera_3d.rotation_degrees.x -= event.relative.y * mouse_sensitivity_v
 		camera_3d.rotation_degrees.x = clamp(camera_3d.rotation_degrees.x, -90, 90)
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
@@ -53,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
+	if direction && !Input.is_action_pressed("right_click"):
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:

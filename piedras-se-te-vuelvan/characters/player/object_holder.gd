@@ -4,21 +4,30 @@ extends Node3D
 
 @export var minimum_verticality = 0.5
 @export var release_height = 0.1
+@export var object_rotate_sensitivity_z = 1
+
+func _process(delta: float) -> void:
+	if player.held_object != null:
+		player.held_object.global_position = global_position
+		player.held_object.freeze = true
+	if Input.is_action_pressed("right_click") && player.held_object != null:
+		var input_dir := Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
+		player.held_object.rotation_degrees.z -= input_dir.x * object_rotate_sensitivity_z
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion && Input.is_action_pressed("right_click") && player.held_object != null:
+		player.held_object.rotation_degrees.y -= event.relative.x * player.mouse_sensitivity_h
+		player.held_object.rotation_degrees.x -= event.relative.y * player.mouse_sensitivity_v
 
 func pick_up_object(object : Node3D):
-	object.get_parent().remove_child(object)
-	add_child(object)
-	object.position = Vector3.ZERO
-	object.freeze = true
 	player.held_object = object
 	print_debug(object.name)
 
 func release_object_if_surface_flat(object : Node3D):
 	if target_is_object() || surface_vertical_enough():
-		remove_child(object)
-		get_tree().root.add_child(object)
-		place_released_object(object)
 		object.freeze = false
+		place_released_object(object)
 		player.held_object = null
 		print_debug(object.name)
 	else: return
