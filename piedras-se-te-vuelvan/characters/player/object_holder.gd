@@ -7,18 +7,20 @@ extends Node3D
 @export var object_rotate_sensitivity_z = 1
 
 func _process(delta: float) -> void:
-	if player.held_object != null:
-		player.held_object.global_position = global_position
-		player.held_object.freeze = true
-	if Input.is_action_pressed("right_click") && player.held_object != null:
-		var input_dir := Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
-		player.held_object.rotation_degrees.z -= input_dir.x * object_rotate_sensitivity_z
+	if !player.player_locked:
+		if player.held_object != null:
+			player.held_object.global_position = global_position
+			player.held_object.freeze = true
+		if Input.is_action_pressed("right_click") && player.held_object != null:
+			var input_dir := Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
+			player.held_object.rotation_degrees.z -= input_dir.x * object_rotate_sensitivity_z
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion && Input.is_action_pressed("right_click") && player.held_object != null:
-		player.held_object.rotation_degrees.y -= event.relative.x * player.mouse_sensitivity_h
-		player.held_object.rotation_degrees.x -= event.relative.y * player.mouse_sensitivity_v
+	if !player.player_locked:
+		if event is InputEventMouseMotion && Input.is_action_pressed("right_click") && player.held_object != null:
+			player.held_object.rotation_degrees.y -= event.relative.x * player.mouse_sensitivity_h
+			player.held_object.rotation_degrees.x -= event.relative.y * player.mouse_sensitivity_v
 
 func pick_up_object(object : Node3D):
 	player.held_object = object

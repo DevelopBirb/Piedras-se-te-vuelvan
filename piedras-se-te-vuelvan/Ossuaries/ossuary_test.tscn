@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://benrlb81wcq40"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
+size = Vector3(2.6, 0.14, 1.42)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
+size = Vector3(2.4970703, 0.021484375, 1.3183594)
+
+[node name="Ossuary" type="RigidBody3D" unique_id=1214027299 groups=["interactable", "ossuary"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2063710077]
+mesh = SubResource("BoxMesh_aqk2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1251623027]
+shape = SubResource("BoxShape3D_036b0")
+
+[node name="containerArea" type="CollisionShape3D" parent="." unique_id=1393999741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.090770304, 0)
+shape = SubResource("BoxShape3D_036b0")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1738389085]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.5, 0)

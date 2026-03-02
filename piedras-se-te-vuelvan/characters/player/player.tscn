@@ -40,5 +40,5 @@ script = ExtResource("3_exd8k")
 release_height = 0.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/ObjectHolder" unique_id=962500440]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, 0, 0)
 mesh = SubResource("BoxMesh_exd8k")
