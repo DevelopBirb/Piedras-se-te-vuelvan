@@ -4,12 +4,15 @@ extends Node3D
 @onready var player: CharacterBody3D = $"../.."
 @onready var object_holder: Node3D = $"../ObjectHolder"
 
-func _process(delta: float) -> void:
+signal detector_looking_at(object : Node3D)
+
+func _process(_delta: float) -> void:
 	if !player.player_locked:
 		if detector_ray_cast_3d.is_colliding():
 			var target = detector_ray_cast_3d.get_collider()
-			player.looking_at.emit(target)
-			if Input.is_action_just_pressed("interact"):
-				player.interacted_with.emit(target)
+			detector_looking_at.emit(target)
+		else:
+			var no_target = null
+			detector_looking_at.emit(no_target)
 	else:
 		pass

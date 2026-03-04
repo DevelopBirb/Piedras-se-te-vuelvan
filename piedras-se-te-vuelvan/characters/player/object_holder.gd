@@ -6,21 +6,15 @@ extends Node3D
 @export var release_height = 0.1
 @export var object_rotate_sensitivity_z = 1
 
-func _process(delta: float) -> void:
-	if !player.player_locked:
-		if player.held_object != null:
-			player.held_object.global_position = global_position
-			player.held_object.freeze = true
-		if Input.is_action_pressed("right_click") && player.held_object != null:
-			var input_dir := Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
-			player.held_object.rotation_degrees.z -= input_dir.x * object_rotate_sensitivity_z
-
+func _process(_delta: float) -> void:
+	if player.held_object != null:
+		hold_object()
+	if Input.is_action_pressed("right_click") && player.held_object != null:
+		rotate_object_z_axis_with_direction_buttons()
 
 func _input(event: InputEvent) -> void:
-	if !player.player_locked:
-		if event is InputEventMouseMotion && Input.is_action_pressed("right_click") && player.held_object != null:
-			player.held_object.rotation_degrees.y -= event.relative.x * player.mouse_sensitivity_h
-			player.held_object.rotation_degrees.x -= event.relative.y * player.mouse_sensitivity_v
+	if event is InputEventMouseMotion && Input.is_action_pressed("right_click") && player.held_object != null:
+		rotate_object_x_y_axis_with_mouse(event)
 
 func pick_up_object(object : Node3D):
 	player.held_object = object
@@ -37,7 +31,18 @@ func release_object_if_surface_flat(object : Node3D):
 func place_released_object(object):
 	var surface_point = detector_ray_cast_3d.get_collision_point()
 	object.position = surface_point + Vector3.UP * release_height
-	
+
+func hold_object():
+		player.held_object.global_position = global_position
+		player.held_object.freeze = true
+
+func rotate_object_z_axis_with_direction_buttons():
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
+	player.held_object.rotation_degrees.z -= input_dir.x * object_rotate_sensitivity_z
+
+func rotate_object_x_y_axis_with_mouse(event):
+	player.held_object.rotation_degrees.y -= event.relative.x * player.mouse_sensitivity_h
+	player.held_object.rotation_degrees.x -= event.relative.y * player.mouse_sensitivity_v
 
 func target_is_object():
 	if detector_ray_cast_3d.get_collider().is_in_group("object"):

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://phmj8ewpsc2j" path="res://characters/player/player.gd" id="1_508ok"]
 [ext_resource type="Script" uid="uid://btj8uhps4e75i" path="res://characters/player/interactor.gd" id="2_xxgcw"]
 [ext_resource type="Script" uid="uid://c62s2k5acnawt" path="res://characters/player/object_holder.gd" id="3_exd8k"]
+[ext_resource type="Script" uid="uid://bymf43d0bjyw7" path="res://characters/player/character_mover.gd" id="4_5dc8e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b886q"]
 radius = 0.33251953
@@ -42,3 +43,11 @@ release_height = 0.3
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/ObjectHolder" unique_id=962500440]
 transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, 0, 0, 0)
 mesh = SubResource("BoxMesh_exd8k")
+
+[node name="CharacterMover" type="Node3D" parent="." unique_id=768594583]
+script = ExtResource("4_5dc8e")
+jump_force = 10.0
+max_speed = 10.0
+move_accel = 2.0
+
+[connection signal="detector_looking_at" from="Camera3D/Interactor" to="." method="_on_interactor_detector_looking_at"]

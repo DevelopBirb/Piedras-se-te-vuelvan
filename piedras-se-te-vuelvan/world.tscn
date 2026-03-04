@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cflg1gm5nm28y" path="res://environment/iglesia_romanica.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://c8xbbguf4r3n0" path="res://characters/player/player.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://bvhxh2orw8ga2" path="res://Managers/interactions_manager.tscn" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://benrlb81wcq40" path="res://Ossuaries/ossuary_test.tscn" id="4_aqk2v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
@@ -67,24 +66,21 @@ shape = SubResource("SphereShape3D_tlwt5")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("SphereMesh_aqk2v")
 
-[node name="InteractionsManager" parent="." unique_id=791788302 instance=ExtResource("3_tlwt5")]
-
 [node name="ossuaryTest" parent="." unique_id=1214027299 instance=ExtResource("4_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.750753, -2.0076718, 99.569725)
+contact_monitor = true
+max_contacts_reported = 100
 
 [node name="ossuaryTest2" parent="." unique_id=1694216208 instance=ExtResource("4_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.955862, -2.0076718, 100.07819)
+contact_monitor = true
+max_contacts_reported = 100
 
 [node name="ossuaryTest3" parent="." unique_id=532424569 instance=ExtResource("4_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.449299, -2.0076718, 99.12958)
+contact_monitor = true
+max_contacts_reported = 100
 
-[connection signal="interacted_with" from="Player" to="InteractionsManager" method="_on_player_interacted_with"]
-[connection signal="entered_ossuary" from="InteractionsManager" to="Player" method="_on_interactions_manager_entered_ossuary"]
-[connection signal="entered_ossuary" from="InteractionsManager" to="ossuaryTest" method="_on_interactions_manager_entered_ossuary"]
-[connection signal="exited_ossuary" from="InteractionsManager" to="Player" method="_on_interactions_manager_exited_ossuary"]
-[connection signal="exited_ossuary" from="InteractionsManager" to="ossuaryTest" method="_on_interactions_manager_exited_ossuary"]
-[connection signal="object_picked_up" from="InteractionsManager" to="Player" method="_on_interactions_manager_object_picked_up"]
-[connection signal="object_picked_up" from="InteractionsManager" to="ossuaryTest" method="_on_interactions_manager_object_picked_up"]
-[connection signal="object_released" from="InteractionsManager" to="Player" method="_on_interactions_manager_object_released"]
-[connection signal="object_released" from="InteractionsManager" to="ossuaryTest" method="_on_interactions_manager_object_released"]
-[connection signal="state_changed" from="InteractionsManager" to="InteractionsManager" method="_on_state_changed"]
+[connection signal="body_entered" from="ossuaryTest" to="ossuaryTest" method="_on_body_entered"]
+[connection signal="body_entered" from="ossuaryTest2" to="ossuaryTest2" method="_on_body_entered"]
+[connection signal="body_entered" from="ossuaryTest3" to="ossuaryTest3" method="_on_body_entered"]
