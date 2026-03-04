@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cflg1gm5nm28y" path="res://environment/iglesia_romanica.tscn" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://c8xbbguf4r3n0" path="res://characters/player/player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://bt6oa8750pykc" path="res://PickableObjects/pickable_object.tscn" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://benrlb81wcq40" path="res://Ossuaries/ossuary_test.tscn" id="4_aqk2v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
@@ -16,10 +17,6 @@ background_mode = 2
 sky = SubResource("Sky_f3sb7")
 ambient_light_source = 2
 ambient_light_color = Color(0.42123565, 0.4209256, 0.5186582, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_fj7yv"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tlwt5"]
 
@@ -41,18 +38,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.150665, 0.5904331, -5.4781
 [node name="Player" parent="." unique_id=1267340891 instance=ExtResource("2_fj7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.549427, -1.0275955, 104.800156)
 
-[node name="ObjectTest" type="RigidBody3D" parent="." unique_id=19824509 groups=["interactable", "object"]]
+[node name="PickableObject" parent="." unique_id=1248700843 instance=ExtResource("3_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.072027, 0, 104.15217)
-collision_layer = 4
-collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ObjectTest" unique_id=1557423498]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-shape = SubResource("BoxShape3D_fj7yv")
+[node name="PickableObject2" parent="." unique_id=1397894695 instance=ExtResource("3_aqk2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809689, -4.7683716e-07, 105.36181)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ObjectTest" unique_id=569655743]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = SubResource("BoxMesh_tlwt5")
+[node name="PickableObject3" parent="." unique_id=1571939461 instance=ExtResource("3_aqk2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.635487, -4.7683716e-07, 106.72524)
+collision_mask = 5
 
 [node name="ObjectTest2" type="RigidBody3D" parent="." unique_id=17742585 groups=["interactable", "object"]]
 collision_layer = 4
@@ -68,19 +62,12 @@ mesh = SubResource("SphereMesh_aqk2v")
 
 [node name="ossuaryTest" parent="." unique_id=1214027299 instance=ExtResource("4_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.750753, -2.0076718, 99.569725)
-contact_monitor = true
 max_contacts_reported = 100
 
 [node name="ossuaryTest2" parent="." unique_id=1694216208 instance=ExtResource("4_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.955862, -2.0076718, 100.07819)
-contact_monitor = true
 max_contacts_reported = 100
 
 [node name="ossuaryTest3" parent="." unique_id=532424569 instance=ExtResource("4_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.449299, -2.0076718, 99.12958)
-contact_monitor = true
 max_contacts_reported = 100
-
-[connection signal="body_entered" from="ossuaryTest" to="ossuaryTest" method="_on_body_entered"]
-[connection signal="body_entered" from="ossuaryTest2" to="ossuaryTest2" method="_on_body_entered"]
-[connection signal="body_entered" from="ossuaryTest3" to="ossuaryTest3" method="_on_body_entered"]

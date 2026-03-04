@@ -1,12 +1,21 @@
 [gd_scene format=3 uid="uid://benrlb81wcq40"]
 
+[ext_resource type="Script" uid="uid://crc10c1wc2whv" path="res://Ossuaries/ossuary_test.gd" id="1_0fekl"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
 size = Vector3(2.6, 0.14, 1.42)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
-size = Vector3(2.4970703, 0.021484375, 1.3183594)
+size = Vector3(2.59375, 0.17871094, 1.4338379)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0fekl"]
+size = Vector3(2.5253906, 0.19342041, 1.2949219)
 
 [node name="Ossuary" type="RigidBody3D" unique_id=1214027299 groups=["interactable", "ossuary"]]
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 300
+script = ExtResource("1_0fekl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2063710077]
 mesh = SubResource("BoxMesh_aqk2v")
@@ -14,9 +23,17 @@ mesh = SubResource("BoxMesh_aqk2v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1251623027]
 shape = SubResource("BoxShape3D_036b0")
 
-[node name="containerArea" type="CollisionShape3D" parent="." unique_id=1393999741]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.090770304, 0)
-shape = SubResource("BoxShape3D_036b0")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1738389085]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.5, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=104957020]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2090040701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043548584, 0)
+shape = SubResource("BoxShape3D_0fekl")
+
+[node name="Timer" type="Timer" parent="." unique_id=1918552504]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

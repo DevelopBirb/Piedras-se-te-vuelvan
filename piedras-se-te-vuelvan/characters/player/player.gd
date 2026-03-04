@@ -10,6 +10,7 @@ signal looking_at(Node3D)
 @export var held_object : Node3D = null
 
 @onready var character_mover: Node3D = $CharacterMover
+@onready var interactor: Node3D = $Camera3D/Interactor
 
 @onready var camera_3d: Camera3D = $Camera3D
 @onready var camera_position = camera_3d.position
@@ -77,31 +78,44 @@ func _process(_delta: float) -> void:
 
 func interact_with(something):
 	if something != null:
-		if something.is_in_group("object"):
+		if something.is_in_group("object") && (!something.get_parent().is_in_group("ossuary") || in_ossuary):
 			var object = something
 			if held_object != null:
 				object_holder.release_object_if_surface_flat(held_object)
 			object_holder.pick_up_object(object)
-		if something.is_in_group("ossuary"):
+		if something.is_in_group("ossuary") || (something.get_parent().is_in_group("ossuary") && !in_ossuary):
 			var ossuary = something
+			if something.get_parent().is_in_group("ossuary") && !in_ossuary:
+				ossuary = something.get_parent()
 			if !in_ossuary:
 				enter_ossuary(ossuary)
 			else:
-				exit_ossuary(ossuary)
-		if !something.is_in_group("interactable") && held_object != null:
+				if held_object != null:
+					object_holder.release_object_if_surface_flat(held_object)
+				else:
+					exit_ossuary()
+		if !something.is_in_group("interactable") && held_object != null && !in_ossuary:
 			object_holder.release_object_if_surface_flat(held_object)
+		else: if !something.is_in_group("interactable") && in_ossuary:
+			exit_ossuary()
 
 func enter_ossuary(ossuary : Node3D):
 	player_locked = true
 	in_ossuary = true
+	camera_position = camera_3d.position
+	camera_rotation = camera_3d.rotation
 	camera_3d.global_position = ossuary.get_node("Camera3D").global_position
 	camera_3d.global_rotation = ossuary.get_node("Camera3D").global_rotation
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 func point_interactor_to_mouse():
-	pass
+	var mouse_pos := get_viewport().get_mouse_position()
+	var ray_start := camera_3d.project_ray_origin(mouse_pos)
+	var direction := camera_3d.project_ray_normal(mouse_pos)
+	interactor.look_at(ray_start + direction)
 
-func exit_ossuary(_ossuary : Node3D):
+func exit_ossuary():
+	interactor.rotation = Vector3.ZERO
 	player_locked = false
 	in_ossuary = false
 	camera_3d.position = camera_position

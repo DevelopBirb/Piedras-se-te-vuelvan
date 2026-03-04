@@ -22,6 +22,7 @@ func pick_up_object(object : Node3D):
 
 func release_object_if_surface_flat(object : Node3D):
 	if target_is_object() || surface_vertical_enough():
+		object.reparent(get_tree().current_scene)
 		object.freeze = false
 		place_released_object(object)
 		player.held_object = null
