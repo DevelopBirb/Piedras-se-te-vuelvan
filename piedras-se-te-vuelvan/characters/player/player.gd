@@ -38,9 +38,12 @@ func _process(_delta: float) -> void:
 		interact_with(target)
 	
 	if Input.is_action_pressed("right_click"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		player_locked = true
 	else:
 		player_locked = false
+		if in_ossuary:
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
