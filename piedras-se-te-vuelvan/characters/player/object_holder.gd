@@ -49,11 +49,11 @@ func follow_mouse_during_ossuary():
 
 func rotate_object_z_axis_with_direction_buttons():
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forwards", "move_backwards")
-	player.held_object.rotation_degrees.z -= input_dir.x * object_rotate_sensitivity_z
+	player.held_object.global_rotation_degrees.z -= input_dir.x * object_rotate_sensitivity_z
 
 func rotate_object_x_y_axis_with_mouse(event):
-	player.held_object.rotation_degrees.y -= event.relative.x * player.mouse_sensitivity_h
-	player.held_object.rotation_degrees.x -= event.relative.y * player.mouse_sensitivity_v
+	player.held_object.global_rotation_degrees.y -= event.relative.x * player.mouse_sensitivity_h
+	player.held_object.global_rotation_degrees.x -= event.relative.y * player.mouse_sensitivity_v
 
 func target_is_object():
 	if detector_ray_cast_3d.get_collider().is_in_group("object"):

@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://c8xbbguf4r3n0" path="res://characters/player/player.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://bt6oa8750pykc" path="res://PickableObjects/pickable_object.tscn" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://benrlb81wcq40" path="res://Ossuaries/ossuary_test.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://d280enrqym88h" path="res://PickableObjects/assets/totebag.glb" id="5_dwbse"]
+[ext_resource type="PackedScene" uid="uid://d1wxuudpnlcf1" path="res://PickableObjects/assets/gamba_blanca.glb" id="6_pkg7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -21,6 +23,12 @@ ambient_light_color = Color(0.42123565, 0.4209256, 0.5186582, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_tlwt5"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_aqk2v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbfbk"]
+size = Vector3(0.27386475, 0.44630432, 0.08691406)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ioo17"]
+size = Vector3(0.8701172, 0.26611328, 0.15039063)
 
 [node name="World" type="Node3D" unique_id=473429041]
 
@@ -70,3 +78,24 @@ max_contacts_reported = 100
 [node name="ossuaryTest3" parent="." unique_id=532424569 instance=ExtResource("4_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.449299, -2.0076718, 99.12958)
 max_contacts_reported = 100
+
+[node name="totebag" type="RigidBody3D" parent="." unique_id=1925186250 groups=["interactable", "object"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.741676, 0.2253729, 92.53645)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="totebag" unique_id=821028620]
+transform = Transform3D(1, 0, 0, 0, 0.9302447, -0.36693963, 0, 0.36693963, 0.9302447, 0.00463295, -0.1054192, -0.046188354)
+shape = SubResource("BoxShape3D_gbfbk")
+
+[node name="totebag" parent="totebag" unique_id=1018335924 instance=ExtResource("5_dwbse")]
+
+[node name="gambaBlanca" type="RigidBody3D" parent="." unique_id=412866802 groups=["interactable", "object"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.439745, -0.4920715, 92.53645)
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gambaBlanca" unique_id=204584961]
+transform = Transform3D(0.9502499, -0.31070036, -0.022146277, 0.31001142, 0.9502662, -0.029790632, 0.030300826, 0.021442937, 0.9993109, 0.02876091, -0.04175079, 0.012962341)
+shape = SubResource("BoxShape3D_ioo17")
+
+[node name="gamba_blanca" parent="gambaBlanca" unique_id=599470935 instance=ExtResource("6_pkg7o")]
+transform = Transform3D(0.8757343, 0, -0.48279336, 0, 1, 0, 0.48279336, 0, 0.8757343, 0, 0, 0)
