@@ -43,7 +43,7 @@ func _process(_delta: float) -> void:
 	else:
 		player_locked = false
 		if in_ossuary:
-			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
@@ -109,7 +109,7 @@ func enter_ossuary(ossuary : Node3D):
 	camera_rotation = camera_3d.rotation
 	camera_3d.global_position = ossuary.get_node("Camera3D").global_position
 	camera_3d.global_rotation = ossuary.get_node("Camera3D").global_rotation
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func point_interactor_to_mouse():
 	var mouse_pos := get_viewport().get_mouse_position()
