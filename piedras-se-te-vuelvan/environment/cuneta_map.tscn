@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bsefpr7748t1m"]
+
+[ext_resource type="PackedScene" uid="uid://nhccl14bvefo" path="res://environment/assets/ANAcunetaMap.blend" id="1_6ynxm"]
+
+[node name="cunetaMap" type="Node3D" unique_id=2108221011]
+
+[node name="ANAcunetaMap" parent="." unique_id=1463910625 instance=ExtResource("1_6ynxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.297424, -24.263493, 103.538284)

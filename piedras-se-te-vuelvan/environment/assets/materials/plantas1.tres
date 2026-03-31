@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d1hx6jbc1og05"]
+
+[ext_resource type="Texture2D" uid="uid://diidutp6iqbq6" path="res://environment/assets/textures/plants descampado.png" id="1_87dqx"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_87dqx")

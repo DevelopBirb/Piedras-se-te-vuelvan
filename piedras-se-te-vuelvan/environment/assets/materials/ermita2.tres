@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ca03i5bli17ow"]
+
+[ext_resource type="Texture2D" uid="uid://bh7ew75pgvb54" path="res://environment/assets/textures/ermita2.png" id="1_ddbfn"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_ddbfn")

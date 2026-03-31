@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://benrlb81wcq40"]
 
 [ext_resource type="Script" uid="uid://crc10c1wc2whv" path="res://Ossuaries/ossuary_test.gd" id="1_0fekl"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
-size = Vector3(2.6, 0.14, 1.42)
+[ext_resource type="PackedScene" uid="uid://cfhbx05rr2ryg" path="res://Ossuaries/ossuary assets/BoneBox.blend" id="2_yy5j0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
-size = Vector3(2.59375, 0.17871094, 1.4338379)
+size = Vector3(2.59375, 0.103637695, 1.0214844)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0fekl"]
-size = Vector3(2.5253906, 0.19342041, 1.2949219)
+size = Vector3(2.5253906, 0.19342041, 0.9724121)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yy5j0"]
+size = Vector3(2.5898438, 0.21063232, 0.08200073)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7q4r3"]
+size = Vector3(0.05859375, 0.22290039, 1)
 
 [node name="Ossuary" type="RigidBody3D" unique_id=1214027299 groups=["interactable", "ossuary"]]
 continuous_cd = true
@@ -17,10 +21,11 @@ contact_monitor = true
 max_contacts_reported = 300
 script = ExtResource("1_0fekl")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2063710077]
-mesh = SubResource("BoxMesh_aqk2v")
+[node name="BoneBox" parent="." unique_id=793148185 instance=ExtResource("2_yy5j0")]
+transform = Transform3D(-6.5204745e-08, 0, -1.4917107, 0, 1.4917107, 0, 1.4917107, 0, -6.5204745e-08, 0, -0.06021741, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1251623027]
+[node name="BoxFloor" type="CollisionShape3D" parent="." unique_id=1251623027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03753662, 0)
 shape = SubResource("BoxShape3D_036b0")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1738389085]
@@ -34,6 +39,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043548584, 0)
 shape = SubResource("BoxShape3D_0fekl")
 
 [node name="Timer" type="Timer" parent="." unique_id=1918552504]
+
+[node name="BoxLongSide" type="CollisionShape3D" parent="." unique_id=2135175582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061187744, 0.5205841)
+shape = SubResource("BoxShape3D_yy5j0")
+
+[node name="BoxLongSide2" type="CollisionShape3D" parent="." unique_id=1477365013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.061187744, -0.5237479)
+shape = SubResource("BoxShape3D_yy5j0")
+
+[node name="BoxShortSide" type="CollisionShape3D" parent="." unique_id=130079537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3169618, 0.056274414, 0)
+shape = SubResource("BoxShape3D_7q4r3")
+
+[node name="BoxShortSide2" type="CollisionShape3D" parent="." unique_id=314036542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3186917, 0.056274414, 0)
+shape = SubResource("BoxShape3D_7q4r3")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

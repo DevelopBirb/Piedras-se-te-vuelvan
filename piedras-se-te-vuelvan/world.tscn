@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://benrlb81wcq40" path="res://Ossuaries/ossuary_test.tscn" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://d280enrqym88h" path="res://PickableObjects/assets/totebag.glb" id="5_dwbse"]
 [ext_resource type="PackedScene" uid="uid://d1wxuudpnlcf1" path="res://PickableObjects/assets/gamba_blanca.glb" id="6_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://bsefpr7748t1m" path="res://environment/cuneta_map.tscn" id="7_pkg7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -41,19 +42,19 @@ shadow_enabled = true
 environment = SubResource("Environment_fj7yv")
 
 [node name="iglesia romanica" parent="." unique_id=1930712271 instance=ExtResource("1_f3sb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.150665, 0.5904331, -5.478157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.35959, -27.338367, 113.32564)
 
 [node name="Player" parent="." unique_id=1267340891 instance=ExtResource("2_fj7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.549427, -1.0275955, 104.800156)
 
 [node name="PickableObject" parent="." unique_id=1248700843 instance=ExtResource("3_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.072027, 0, 104.15217)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.555458, -4.355853, 123.65894)
 
 [node name="PickableObject2" parent="." unique_id=1397894695 instance=ExtResource("3_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.809689, -4.7683716e-07, 105.36181)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.293119, -4.3558536, 124.86858)
 
 [node name="PickableObject3" parent="." unique_id=1571939461 instance=ExtResource("3_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.623255, -4.7683716e-07, 101.07463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.081732, -4.3558536, 121.529594)
 
 [node name="ObjectTest2" type="RigidBody3D" parent="." unique_id=17742585 groups=["interactable", "object"]]
 collision_layer = 4
@@ -68,19 +69,19 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("SphereMesh_aqk2v")
 
 [node name="ossuaryTest" parent="." unique_id=1214027299 instance=ExtResource("4_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.750753, -2.0076718, 99.569725)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4171824, -2.0076718, 116.34837)
 max_contacts_reported = 100
 
 [node name="ossuaryTest2" parent="." unique_id=1694216208 instance=ExtResource("4_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.955862, -2.0076718, 100.07819)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7879262, -2.0076718, 116.85684)
 max_contacts_reported = 100
 
 [node name="ossuaryTest3" parent="." unique_id=532424569 instance=ExtResource("4_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.449299, -2.0076718, 99.12958)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.281363, -2.0076718, 115.908226)
 max_contacts_reported = 100
 
 [node name="totebag" type="RigidBody3D" parent="." unique_id=1925186250 groups=["interactable", "object"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.741676, 0.2253729, 92.53645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.132803, -2.0598865, 120.14511)
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="totebag" unique_id=821028620]
@@ -90,7 +91,7 @@ shape = SubResource("BoxShape3D_gbfbk")
 [node name="totebag" parent="totebag" unique_id=1018335924 instance=ExtResource("5_dwbse")]
 
 [node name="gambaBlanca" type="RigidBody3D" parent="." unique_id=412866802 groups=["interactable", "object"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.439745, -0.4920715, 92.53645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8308716, -2.7773309, 120.14511)
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="gambaBlanca" unique_id=204584961]
@@ -99,3 +100,5 @@ shape = SubResource("BoxShape3D_ioo17")
 
 [node name="gamba_blanca" parent="gambaBlanca" unique_id=599470935 instance=ExtResource("6_pkg7o")]
 transform = Transform3D(0.8757343, 0, -0.48279336, 0, 1, 0, 0.48279336, 0, 0.8757343, 0, 0, 0)
+
+[node name="cunetaMap" parent="." unique_id=2108221011 instance=ExtResource("7_pkg7o")]

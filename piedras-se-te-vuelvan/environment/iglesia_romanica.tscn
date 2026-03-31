@@ -5,5 +5,5 @@
 
 [node name="iglesia romanica" unique_id=1930712271 instance=ExtResource("1_sr08d")]
 
-[node name="Ruinas" parent="." index="21" unique_id=27811511 instance=ExtResource("2_uomy5")]
+[node name="Ruinas" parent="." index="21" unique_id=1563151812 instance=ExtResource("2_uomy5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2222862, -3.873991, 127.23772)
