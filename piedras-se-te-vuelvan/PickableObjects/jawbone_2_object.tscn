@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bgjtk7pyirtbo"]
+
+[ext_resource type="PackedScene" uid="uid://bhthsq8i36pn6" path="res://PickableObjects/assets/assetScenes/jawbone_2.tscn" id="1_oeqwq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_27u31"]
+size = Vector3(0.41201782, 0.076049805, 0.13232422)
+
+[node name="jawbone2Object" type="RigidBody3D" unique_id=1018209257 groups=["interactable", "object"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=679795569]
+transform = Transform3D(0.9870777, 0.16024302, 0, -0.16024302, 0.9870777, 0, 0, 0, 1, -0.019930724, -0.004621042, 0.018310547)
+shape = SubResource("BoxShape3D_27u31")
+
+[node name="jawbone22" parent="." unique_id=2068267000 instance=ExtResource("1_oeqwq")]

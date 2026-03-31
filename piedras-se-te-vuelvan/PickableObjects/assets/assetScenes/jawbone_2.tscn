@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhthsq8i36pn6"]
+
+[ext_resource type="PackedScene" uid="uid://df3ask7odxksv" path="res://PickableObjects/assets/jawbone2.glb" id="1_qel6f"]
+[ext_resource type="Material" uid="uid://ca03i5bli17ow" path="res://environment/assets/materials/ermita2.tres" id="2_rjvod"]
+
+[node name="jawbone22" unique_id=2068267000 instance=ExtResource("1_qel6f")]
+
+[node name="jawbone2" parent="." index="0" unique_id=167271539]
+material_override = ExtResource("2_rjvod")

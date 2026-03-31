@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dwskshm7ihdgv"]
+
+[ext_resource type="PackedScene" uid="uid://dieipfoy21nf0" path="res://PickableObjects/assets/concavebone2.glb" id="1_nshxy"]
+[ext_resource type="Material" uid="uid://ca03i5bli17ow" path="res://environment/assets/materials/ermita2.tres" id="2_4n5w0"]
+
+[node name="concavebone2" unique_id=1677339686 instance=ExtResource("1_nshxy")]
+
+[node name="concavebone2_001" parent="." index="0" unique_id=804585157]
+material_override = ExtResource("2_4n5w0")

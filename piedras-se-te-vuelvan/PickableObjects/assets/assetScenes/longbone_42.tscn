@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cl104cerf58ho"]
+
+[ext_resource type="PackedScene" uid="uid://8u3xdeuboc0e" path="res://PickableObjects/assets/longbone4.glb" id="1_xurl6"]
+[ext_resource type="Material" uid="uid://ca03i5bli17ow" path="res://environment/assets/materials/ermita2.tres" id="2_xt5xl"]
+
+[node name="longbone42" unique_id=881725970 instance=ExtResource("1_xurl6")]
+
+[node name="longbone4" parent="." index="0" unique_id=771364489]
+material_override = ExtResource("2_xt5xl")

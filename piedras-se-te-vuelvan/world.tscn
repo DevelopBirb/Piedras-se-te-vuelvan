@@ -7,6 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://d280enrqym88h" path="res://PickableObjects/assets/totebag.glb" id="5_dwbse"]
 [ext_resource type="PackedScene" uid="uid://d1wxuudpnlcf1" path="res://PickableObjects/assets/gamba_blanca.glb" id="6_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://bsefpr7748t1m" path="res://environment/cuneta_map.tscn" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://ovt8ef45tasl" path="res://PickableObjects/concavebone_2_object.tscn" id="8_hiqwa"]
+[ext_resource type="PackedScene" uid="uid://bgjtk7pyirtbo" path="res://PickableObjects/jawbone_2_object.tscn" id="9_2u3nc"]
+[ext_resource type="PackedScene" uid="uid://57fdx2utyr07" path="res://PickableObjects/jawbone_object.tscn" id="10_udxuc"]
+[ext_resource type="PackedScene" uid="uid://bgcu2vt416s6a" path="res://PickableObjects/longbone_2_object.tscn" id="11_ikiii"]
+[ext_resource type="PackedScene" uid="uid://q3r1benrcnl7" path="res://PickableObjects/longbone_3_object.tscn" id="12_cbp6q"]
+[ext_resource type="PackedScene" uid="uid://bhor4lm33t01h" path="res://PickableObjects/longbone_4_object.tscn" id="13_26xuy"]
+[ext_resource type="PackedScene" uid="uid://cooyrov57n2om" path="res://PickableObjects/longbone_5_object.tscn" id="14_bc84e"]
+[ext_resource type="PackedScene" uid="uid://dqsoyoe27bhnt" path="res://PickableObjects/longbone_6_object.tscn" id="15_wukud"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -102,3 +110,27 @@ shape = SubResource("BoxShape3D_ioo17")
 transform = Transform3D(0.8757343, 0, -0.48279336, 0, 1, 0, 0.48279336, 0, 0.8757343, 0, 0, 0)
 
 [node name="cunetaMap" parent="." unique_id=2108221011 instance=ExtResource("7_pkg7o")]
+
+[node name="concavebone2Object" parent="." unique_id=779055778 instance=ExtResource("8_hiqwa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.683805, -4.884039, 123.137695)
+
+[node name="jawbone2Object" parent="." unique_id=1018209257 instance=ExtResource("9_2u3nc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.825916, -5.070747, 123.73765)
+
+[node name="jawboneObject" parent="." unique_id=263069166 instance=ExtResource("10_udxuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2515745, -5.114826, 124.97434)
+
+[node name="longbone2Object" parent="." unique_id=837748859 instance=ExtResource("11_ikiii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.052499, -4.94134, 121.19257)
+
+[node name="longbone3Object" parent="." unique_id=127795740 instance=ExtResource("12_cbp6q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.213474, -5.1695533, 121.395164)
+
+[node name="longbone4Object" parent="." unique_id=1708505525 instance=ExtResource("13_26xuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.062333, -5.260186, 124.570595)
+
+[node name="longbone5Object" parent="." unique_id=162323190 instance=ExtResource("14_bc84e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.607382, -5.532299, 123.41608)
+
+[node name="longbone6Object" parent="." unique_id=1079500388 instance=ExtResource("15_wukud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.91853, -5.2970877, 123.17732)

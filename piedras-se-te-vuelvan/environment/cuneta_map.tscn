@@ -4,5 +4,5 @@
 
 [node name="cunetaMap" type="Node3D" unique_id=2108221011]
 
-[node name="ANAcunetaMap" parent="." unique_id=1463910625 instance=ExtResource("1_6ynxm")]
+[node name="ANAcunetaMap" parent="." unique_id=1575234648 instance=ExtResource("1_6ynxm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.297424, -24.263493, 103.538284)

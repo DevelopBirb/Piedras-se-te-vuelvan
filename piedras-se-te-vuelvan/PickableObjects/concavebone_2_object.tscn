@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ovt8ef45tasl"]
+
+[ext_resource type="PackedScene" uid="uid://dwskshm7ihdgv" path="res://PickableObjects/assets/assetScenes/concavebone_2.tscn" id="1_flq5u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_epx3n"]
+size = Vector3(0.38378906, 0.11804199, 0.26776123)
+
+[node name="concavebone2Object" type="RigidBody3D" unique_id=779055778 groups=["interactable", "object"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=258908895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009033203, 0.015075684, 0.0015563965)
+shape = SubResource("BoxShape3D_epx3n")
+
+[node name="concavebone2" parent="." unique_id=1677339686 instance=ExtResource("1_flq5u")]

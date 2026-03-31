@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bgcu2vt416s6a"]
+
+[ext_resource type="PackedScene" uid="uid://c43mxr6te44qk" path="res://PickableObjects/assets/assetScenes/longbone_2.tscn" id="1_11kh3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxc70"]
+size = Vector3(0.35821533, 0.048583984, 0.109375)
+
+[node name="longbone2Object" type="RigidBody3D" unique_id=837748859 groups=["interactable", "object"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=110575689]
+transform = Transform3D(0.65921456, 0, 0.75195485, 0, 1, 0, -0.75195485, 0, 0.65921456, 0.009475404, 0, -0.0108084325)
+shape = SubResource("BoxShape3D_vxc70")
+
+[node name="longbone22" parent="." unique_id=173684408 instance=ExtResource("1_11kh3")]
