@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://bymf43d0bjyw7" path="res://characters/player/character_mover.gd" id="4_5dc8e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b886q"]
-radius = 0.33251953
+radius = 0.19189453
+height = 1.8222656
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_508ok"]
 
@@ -18,7 +19,7 @@ collision_mask = 3
 script = ExtResource("1_508ok")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=606853513]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9111328, 0)
 shape = SubResource("CapsuleShape3D_b886q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1891095825]
