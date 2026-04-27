@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8xbbguf4r3n0"]
 
 [ext_resource type="Script" uid="uid://phmj8ewpsc2j" path="res://characters/player/player.gd" id="1_508ok"]
-[ext_resource type="Script" uid="uid://btj8uhps4e75i" path="res://characters/player/interactor.gd" id="2_xxgcw"]
+[ext_resource type="Script" uid="uid://btj8uhps4e75i" path="res://characters/player/detector.gd" id="2_xxgcw"]
 [ext_resource type="Script" uid="uid://c62s2k5acnawt" path="res://characters/player/object_holder.gd" id="3_exd8k"]
 [ext_resource type="Script" uid="uid://bymf43d0bjyw7" path="res://characters/player/character_mover.gd" id="4_5dc8e"]
 
@@ -30,10 +30,10 @@ mesh = SubResource("CapsuleMesh_508ok")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=3891279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
-[node name="Interactor" type="Node3D" parent="Camera3D" unique_id=585940755]
+[node name="Detector" type="Node3D" parent="Camera3D" unique_id=585940755]
 script = ExtResource("2_xxgcw")
 
-[node name="DetectorRayCast3D" type="RayCast3D" parent="Camera3D/Interactor" unique_id=1788108881]
+[node name="DetectorRayCast3D" type="RayCast3D" parent="Camera3D/Detector" unique_id=1788108881]
 target_position = Vector3(0, 0, -4)
 collision_mask = 5
 
@@ -53,4 +53,4 @@ jump_force = 10.0
 max_speed = 10.0
 move_accel = 2.0
 
-[connection signal="detector_looking_at" from="Camera3D/Interactor" to="." method="_on_interactor_detector_looking_at"]
+[connection signal="detector_looking_at" from="Camera3D/Detector" to="." method="_on_interactor_detector_looking_at"]
