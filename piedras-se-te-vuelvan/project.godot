@@ -21,8 +21,12 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"Tony_test_character": "res://Dialog/Characters/Tony_test_character.dch"
+}
+directories/dtl_directory={
+"test_timeline": "res://Dialog/Timelines/test_timeline.dtl"
+}
 layout/style_directory={}
 
 [editor_plugins]
